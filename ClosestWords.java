@@ -20,21 +20,21 @@ public class ClosestWords {
 
   List<int [][]> wordMatrixList = new ArrayList<int[][]>();
   List<String> misspelledWords = new ArrayList<String>();
+  List<List<Integer>> editDistMatrix = new ArrayList<List<Integer>>();
 
   int partDist(String w1, String w2, int w1len, int w2len) {
-     int M[][]= new int [w1len+1][w2len+1]; //To include null string.
+     //int M[][]= new int [w1len+1][w2len+1]; //To include null string.
 	 // if(w1len==0)
-		 for(i=0;i<=w2len;i++)
+		 for( List<Integer> i : editDistMatrix)
 		  {
-			  M[0][i]=i;
-			  
+			  editDistMatrix.get(0).add(i);
 		  }  
 	  //if w2Len=o
 	  //if(w2len==0)
 	  
 		 for(i=0;i<=w1len;i++)
 		  {
-			  M[i][0]=i;
+			  editDistMatrix.get(i).add(i);
 		  }  
 	  
 		for(i=1;i<=w1len;i++)
