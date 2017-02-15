@@ -27,7 +27,7 @@ public class Main {
     //    long t1 = System.currentTimeMillis();
     List<String> processedWords = new ArrayList<String>();
     List<int [][]> wordsMatrixList = new ArrayList<int[][]>();
-    HashMap hm = new HashMap();
+    HashMap<String, List<List<Integer>>> hm = new HashMap<String, List<List<Integer>>>();
 
     BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in, "UTF-8"));//InputStreamReader reads bytes and decodes them into characters using a specified charset.
     // Säkrast att specificera att UTF-8 ska användas, för vissa system har annan
@@ -42,14 +42,19 @@ public class Main {
         System.out.print(" " + w);
       processedWords.add(word);
 
-      int tempMatrix[][] = new int[word.length()][word.length()];
-      tempMatrix = closestWords.wordMatrixList.get(0);
-      System.out.println("Matrix exclemtnr " + tempMatrix[0][1]);
+      List<List<Integer>> tempMatrix = new ArrayList<List<Integer>>();
+      //int[][] tempMatrix = new int[][];
+      //TODO:Issue:  Matrix mhas to be changed as an list of list of integer.
+      //tempMatrix = closestWords.wordMatrixList.get(0);
+      //TODO: Conversion of a matrix to a list.
+
+      //System.out.println("Matrix exclemtnr " + tempMatrix[0][1]);
       hm.put(word, tempMatrix);
 
       System.out.println("The size of processed words " + processedWords.size());
       for (String givenWords : processedWords) {
-        System.out.println("The word is  " + hm.get(givenWords));
+
+           // System.out.println("The word is  " + hm.get(givenWords));
       }
       System.out.println(hm.get("Masks"));
 
